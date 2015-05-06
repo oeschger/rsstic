@@ -1,0 +1,65 @@
+{% include "header.html" %}
+
+<h2>Project name: <i>{{ project.name }}</i></h2>
+
+{% if project.description %}
+<p>{{ project.description }}
+{% endif %}
+
+<h3>Feeds in project</h3>
+<form id="feed_remove" name="feed_remove" method="POST" action=".">{% csrf_token %}
+<table cellpadding="5">
+{% for feed in feeds %}
+<tr>
+  <td width="450">
+    <a href="/rsstic/feed/{{ feed.id }}">{{ feed.name }}</a> <!--span class="rsurl">({{ feed.url }})</span-->
+  </td>
+  <td>
+    <a class="rsmenu" href="/rsstic/project/{{ project.id }}/removefeed/{{ feed.id}}">REMOVE</a>
+  </td>
+  <td>
+    <span class="rsmenu">
+{% if feed.mods %}
+MODERATED*
+{% endif %}
+   </span>
+  </td>
+
+</tr>
+{% endfor %}
+<tr>
+  <td>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td class="rsmenu"><a href="/rsstic/project/{{ project.id }}/addfeed">ADD FEED</a></td>
+</tr>
+</table>
+
+</form>
+
+{% if items %}
+<h3>Individual items in project</h3>
+<table cellpadding="5">
+{% for item in items %}
+<tr>
+  <td width="450">
+    <a href="{{ item.url }}" title="{{ item.desc }}">{{ item.name }}</a> <!--span class="rsurl">({{ item.url }})</span-->
+  </td>
+  <td>
+    <a class="rsmenu" href="/rsstic/project/{{ project.id }}/removeitem/{{ item.id}}">REMOVE</a>
+  </td>
+</tr>
+{% endfor %}
+<tr>
+  <td>&nbsp;</td>
+  <td class="rsmenu">
+     <a href="/rsstic/project/{{ project.id }}/additem">ADD ITEM</a>
+  </td>
+</tr>
+</table>
+{% endif %}
+
+
+<br/><br/>
+
+<a class="rsbutton" href="/rss/project/{{ project.id }}/regen">Re-generate</a> 
+<a class="rsbutton" href="/rsstic/project/{{ project.id }}/view/">View</a>

@@ -1,0 +1,20 @@
+{% include "header.html" %}
+
+<h3>Projects</h3>
+<table cellpadding="5">
+{% for project in projects %}
+<tr>
+  <td width="450">
+    <a href="/rsstic/project/{{ project.id }}"><i>{{ project.name }}</i></a></li>
+  </td>
+  <td>
+    <a class="rsmenu" href="/rsstic/projects/modproject/{{ project.id}}">MODIFY</a>
+  </td>
+{% endfor %}
+</tr>
+<tr>
+  <td>&nbsp;</td>
+  <td class="rsmenu"><a href="/rsstic/projects/addproject">ADD PROJECT</a></td>
+</tr>
+</table>
+

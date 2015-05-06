@@ -1,0 +1,9 @@
+{% include "header.html" %}
+<h3>Generated view for project</h3>
+
+<ul>
+{% for item in itemlist %}
+<li><a href="{{ item.link }}" title="{{ item.desc }}">{{ item.title }}</a></li>
+{% endfor %}
+</ul>
+

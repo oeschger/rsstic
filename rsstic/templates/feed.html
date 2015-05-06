@@ -1,0 +1,17 @@
+{% include "header.html" %}
+<h3>Items in feed <i>{{ feedname }}</i></h3>
+
+<ul>
+  <li><input id="select-all" name="select-all" type="checkbox" /> Toggle All<br/></li>
+
+{% for item in itemlist %}
+<li><input type="checkbox"/> <a title="{{ item.desc }}" href="{{ item.link }}">{{ item.title }}</a></li>
+{% endfor %}
+</ul>
+
+<br/><br/>
+<a class="rsbutton">Save changes</a> <a class="rsbutton">Preview</a>
+
+</div><!--end rscon-->
+
+

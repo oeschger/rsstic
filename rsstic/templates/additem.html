@@ -1,0 +1,9 @@
+{% include "header.html" %}
+<h3>Add item to project <i>{{ project.name }}</i></h3>
+<div class="rsform">
+<form method="POST" action=".">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+</div>
+

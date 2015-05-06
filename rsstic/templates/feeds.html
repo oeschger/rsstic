@@ -1,0 +1,10 @@
+{% include "header.html" %}
+<h3>Feeds in project</h3>
+
+<ul>
+{% for feed in feeds %}
+<li><a href="{{ feed.url }}">{{ feed.name }}</a></li>
+{% endfor %}
+</ul>
+
+

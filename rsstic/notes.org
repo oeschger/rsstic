@@ -1,0 +1,24 @@
+* Programming notes
+** Initial list of tasks
+*** DONE Suppress feeds in main views. You have to deal with feeds through a project
+*** DONE Create an Item model for adding arbitrary items (url, desc, guid, title) to a Project
+*** Note: Using rsync from cmd to push
+*** TODO Grow Feed model to include "mods" and use that term
+* <2015-03-13 Fri>
+  In here today working a bit more. Need to get a backup. I'm still a
+  bit stumped about forms, but it's good to push through it mentally:
+  How do ~form~ objects related to views, and to the templates in
+  which a single =<form>= may appear alongside other things. 
+
+  Right now I want to do the submit and change from a mini form in the
+  projects.html page that reads a list of feeds and deletes those that
+  are selected. 
+
+  May have to do the deletes on a different page, where's there's only
+  the one form, since this way I can model it more closely on the
+  additem that I seem to have set up successfully. 
+  
+* <2015-03-16 Mon>
+Got itemize() better organized
+Started on mods stored as JSON, using python json library
+Rebuilt the template to use a table with a MODERATED field that's actually wired to feed.mods
